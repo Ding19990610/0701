@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 递归:函数内部自己调用自己
+        // 1、找规律(数学公式)  2、找出口
+        var count = 0 ;
+
+        // 死循环
+        // function foo(){
+        //      // 当count>10结束
+        //      if(count > 10){
+               
+        //          return 
+                 
+        //      }
+        //      console.log(++count);
+        //      foo()
+        // }
+        // foo();
+        // 求1+2+3+……+10
+        function sum(n){
+             // 当count>10结束
+            n = n+1
+             if(n > 10){ 
+               
+                 return sum(n +1)
+                 
+             }
+             sum()
+        }
+        sum(1);
+    </script>
+</body>
+</html>

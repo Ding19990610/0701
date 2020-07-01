@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 先看this 在哪个作用域下
+        // 在全局下:普通对象、if、for、()、{}、没有特殊情况 this指向window
+
+        // 在局部作用域(function)中，谁调用，指向谁
+        var name = "zc"
+        function foo(){
+            var name = "lyc" ;
+            var age = 95 ;
+            console.log(this.name)//zc
+        }
+        var peson = {  //在栈中存放指针
+            name = "kk",
+            age:25,
+            dec = "s",
+            foo:foo,
+            ao:{
+                name:"wyh",
+                foo:foo
+            },
+            do:this.foo //指向window 
+        }
+        // 谁调用 指向谁  仅看函数执行 左边最近的对象是什么
+        foo();
+        person.foo(); //kk
+        window.person.foo(); //kk
+
+        // person.ao.foo()
+    </script>
+</body>
+</html>

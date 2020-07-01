@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    
+        <div>
+            <div class="box">
+        </div>
+    </div>
+        
+    <script>
+        // 在事件处理函数中,this指向的是【触发事件的元素】 而不是绑定事件的元素
+
+        // 获取div  元素对象   并赋值给node
+        var node = document.getElementsByTagName("div")[0]
+        
+        // 给node 绑定点击事件
+        node.onclick = function(){
+            // 事件处理函数
+            console.log(this)
+        }
+    </script>
+</body>
+</html>

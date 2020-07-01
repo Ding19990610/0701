@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var name = "sss"
+        function foo(para){
+            var name = "xxx";
+            console.log(this.name)
+        }
+
+        var www = {
+            name : "www";
+            foo:foo
+        } 
+        var fff = {
+            name:"yyy",
+            foo:foo,
+            cname:this.name
+        }
+
+        foo();
+        www.foo();
+        fff.foo();
+        // call:改变function 函数内 的  this指向
+            // para1：指定this指向的对象
+            // para2--para n：给调用函数传参
+        foo.call(fff,"嘻嘻嘻",12123)
+        www.foo.call(window) //foo中的this指向 www改为window
+        fff.foo.call(this) //fpp中的this指向 fff改为window
+        // apply:改变function 函数内的  this指向，触发函数
+            // para1：指定this指向的对象
+            // para2：伪数组 作用:调用函数传入的实参
+        yuAng.foo.apply(window,[1,2,3,4])
+
+        // bind:改变function 函数内的  this指向，加上执行符 ()  触发函数
+            // para1：指定this指向的对象
+        yuAng.foo.bind(window)(para1,para2)
+
+        // 思考: （面试题）
+        // call  apply   bind  的区别:
+
+    </script>
+</body>
+</html>

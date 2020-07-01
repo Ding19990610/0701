@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 原理就是一个函数调用结合
+        // 当一个函数在执行的时候，会创建一个上下文对象
+        // 上下文对象中,函数是被调用,在哪里调用的,参数是什么等信息
+        // this 就是记录 一个属性，在函数被调用的时候产生
+        // 函数调用的几种方式？
+        // new 
+        // 对象调用
+        // 事件调用
+        // call apply 或bind
+
+        // 原理二；结合作用域看this
+        // 问题:为什么return 返回 伪 对象、数组、函数   this 就不指向new实例化的对象
+        // 函数本身不能作为构造函数，new类似失效
+        // 原理:
+        // 创建一个对象，就是将构造函数的作用域赋给了新对象;所以this 指向了这个对象，return {}, [],function 之后；改变了作用域，作用域赋值给了 {} function [] 
+        // 所以this指向{} [] function
+
+        var name = "xx"
+        function foo() {
+            // var age = 12;
+            this.name = "aa";
+            console.log(this, "adadada");
+            return {
+                name: "xxxxx"
+            }
+        }
+        // foo()
+        var obj = new foo();
+        console.log(obj)
+    </script>
+</body>
+
+</html>

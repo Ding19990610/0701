@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var point = {
+        //     x: 0,
+        //     y: 0,
+        //     moveTo: function (x, y) { //x=1 y=1
+        //         //this指向point
+        //         var moveX = function (x) {
+        //             //this指向window
+        //             this.x = x; //this指向window  全局下的 x = 1
+        //         };
+        //         var moveY = function (y) {
+        //             //this指向window
+        //             this.y = y; //this指向window  全局下的 y = 1
+        //         };
+        //         moveX(x);
+        //         moveY(y);
+        //     }
+        // };
+        // point.moveTo(1, 1);
+        // console.log(point.x); //0
+        // console.log(point.y); //0
+        // function Point(x, y) {
+        //     console.log(this);
+        //     this.x = x;
+        //     console.log(this.x);
+        //     this.y = y;
+        //     console.log(this.y);
+        //     this.moveTo = function (x, y) {
+        //         console.log(this);
+        //         this.x = x;
+        //         this.y = y;
+        //         console.log(this.x);
+        //         console.log(this.y);
+        //     }
+        // }
+        // var p1 = new Point(0, 0);
+        // var p2 = {
+        //     x: 0,
+        //     y: 0
+        // }
+        // p1.moveTo(1, 1);
+        // p1.moveTo.apply(p2, [10, 10]);
+
+        // console.log(x);//报错  x is not  defind
+        // console.log(y);
+        (function () {
+            eval("console.log(this)"); // Window
+        })();
+
+        function Foo() {
+            console.log(this);
+            
+            this.bar = function () {
+                console.log(this); 
+                eval("console.log(this)"); // Foo
+            }
+        }
+        var foo = new Foo();
+        foo.bar();
+    </script>
+</body>
+
+</html>

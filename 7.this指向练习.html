@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 难度系数:****  
+        // var num = 1;  //num=4
+        // var myObject = {
+        //     num: 2,
+        //     add: function () {
+        //         this.num = 3;  //myObject.num = 3  重新赋值
+        //         (function () {
+        //             console.log(this.num);  //1
+        //             this.num = 4; //window.num = 4
+        //         })();//立即执行函数 window调用，this指向window
+        //         console.log(this.num);  //3  myObject.num = 3
+        //     },
+        //     sub: function () {
+        //         console.log(this.num)
+        //     }
+        // }
+        // myObject.add();
+        // console.log(myObject.num);//3
+        // console.log(num);//4
+        // var sub = myObject.sub;
+        // sub();//4
+
+        // 难度系数:  ***
+        // var name = 'window'        
+        // var person1 = {
+        //     name: 'person1',
+        //     show1: function () {
+        //         console.log(this.name) 
+        //     },
+        //     show3: function () {
+        //         return function () {
+        //             console.log(this.name)  //指向window
+        //         }
+        //     }
+        // }
+        // var person2 = { name: 'person2' }
+
+        // person1.show1()              // person1.name
+        // person1.show1.call(person2)  // person2.name
+
+        // person1.show3()()            // window.name
+        // // var res = person1.show3()
+        //     // res();
+        // person1.show3().call(person2)// person2.name
+        // person1.show3.call(person2)()// window.name
+        // // var res = person1.show3.call(person2)
+        // res();
+        var obj = {};
+        (function(){
+            console.log(this)
+            return function(){
+                console.log(this)
+            }
+        }).call(obj)();
+    </script>
+</body>
+
+</html>
